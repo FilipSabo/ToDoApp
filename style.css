@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: azure;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height:80vh;
+    width: 70vw;
+    border: 2px solid red;
+    margin: 30px auto;
+    background-color: black;
+    border-radius: 10px;
+
+}
+
+.formSub {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 97%;
+    margin-top: 5px;
+
+}
+
+.text {
+    width: 80vw;
+    padding: 2px 5px;
+    border-radius: 5px;
+    color: black;
+}
+.submit {
+    padding: 2px 5px;
+    margin-left: 4px;
+    cursor: pointer;
+    border: none;
+    background-color: red;
+    border-radius: 5px;
+}
+.submit:hover{
+    background-color: rgb(183, 62, 62);
+}
+
+.deleteButton {
+    margin-bottom: 5px;
+    background-color: red;
+    padding: 2px 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.deleteButton:hover{
+    background-color: rgb(183, 62, 62);
+    padding: 5px 10px;
+
+}
+
+.listToDo{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    height: 80%;
+    width: 90%;
+
+    
+}
+
+.oneTask {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 3px 5%;
+    
+
+}
+
+.oneTask button {
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    padding: 2px 5px;
+    margin-right: 2px;
+    cursor: pointer;
+    
+}
+
+.oneTask button:hover{
+    background-color: rgb(183, 62, 62);
+}
+
+.invite {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 50%;
+}
