@@ -10,15 +10,24 @@ const removeTask = (myTask, id) => {
 }
 
 
+
 const newHTMLStructure = (oneTask, id) => {
     const newDiv = document.createElement("div")
     const newSpan = document.createElement("span")
     const newButton = document.createElement("button")
+    const newCheckBox = document.createElement("input")
 
+    newCheckBox.type = "checkbox"
+    newCheckBox.classList.add("checkBox")
+    newDiv.appendChild(newCheckBox) 
+    
+  
     newSpan.textContent = oneTask.task
     newDiv.appendChild(newSpan)
 
-    newButton.textContent = "Hotovo"
+    
+
+    newButton.textContent = "Vymazať"
     newDiv.appendChild(newButton)
 
     newDiv.classList.add("oneTask")
@@ -27,11 +36,15 @@ const newHTMLStructure = (oneTask, id) => {
     }
     
 
-    newButton.addEventListener("click", () => {
+    newButton.addEventListener("click", (e) => {
+        e.preventDefault()
+
         removeTask(tasks, oneTask.id)
         saveTasks()
         toPageAgain()
-
+        
+        const textCont = "Vymazané"
+        notification(textCont)
         
     })
 
@@ -51,6 +64,8 @@ const getTasks = () => {
         return []
     }
 }
+
+
 
 const createIf = (tasks) => {
     if(tasks.length !== 0){
@@ -99,5 +114,15 @@ const deleteAllTasks = () => {
 
         document.querySelector(".listToDo").appendChild(invDiv)
 
+    
+}
+
+const notification = (textCont) => {
+    let notification = document.querySelector(".notification")
+    notification.textContent = textCont
+    notification.style.visibility= "visible"
+    setTimeout(() => {
+        notification.style.visibility= "hidden"
+    },1000)
     
 }
