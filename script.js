@@ -1,6 +1,11 @@
 
 let tasks = getTasks()
-createIf(tasks)
+let checkBoxChecked = checkedGet()
+createIf(tasks, checkBoxChecked)
+
+
+// console.log(checkBoxChecked)
+
 
 
 const firmSub = document.querySelector(".formSub")
@@ -23,7 +28,7 @@ firmSub.addEventListener("submit", (e) => {
     e.target.reset()
 
     document.querySelector(".listToDo").innerHTML = ""
-
+  
     createIf(tasks)
 })
 
@@ -35,7 +40,4 @@ deleteButton.addEventListener("click", () => {
 
     deleteAllTasks()
 })
- const check = document.querySelector(".checkBox")
- check.addEventListener("change", () => {
-    
- })
+

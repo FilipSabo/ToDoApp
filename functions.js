@@ -9,6 +9,26 @@ const removeTask = (myTask, id) => {
     }
 }
 
+const checked = (id, check) => {
+    if(check){
+        checkBoxChecked.push(id)
+        checkedSave()
+    } else if (!check){
+        let index = checkBoxChecked.findIndex((oneCheck) => {
+            return oneCheck === id
+        })
+        if(index > -1){
+            checkBoxChecked.splice(index,1)
+        } 
+        checkedSave()
+    }
+}
+
+const checkCheckbox = () => {
+    
+}
+
+
 
 
 const newHTMLStructure = (oneTask, id) => {
@@ -20,6 +40,17 @@ const newHTMLStructure = (oneTask, id) => {
     newCheckBox.type = "checkbox"
     newCheckBox.classList.add("checkBox")
     newDiv.appendChild(newCheckBox) 
+
+    newCheckBox.addEventListener("change", () => {
+        let check = newCheckBox.checked
+        checked(oneTask.id, check)
+    })
+
+    for(let i = 0; i < checkBoxChecked.length; i++){
+        if(oneTask.id === checkBoxChecked[i]){
+            newCheckBox.checked = true
+        }
+    }
     
   
     newSpan.textContent = oneTask.task
@@ -55,6 +86,10 @@ const saveTasks = () => {
     localStorage.setItem("task", JSON.stringify(tasks))
 }
 
+const checkedSave = () => {
+    localStorage.setItem("checkBox", JSON.stringify(checkBoxChecked)) 
+}
+
 const getTasks = () => {
     let myTask = localStorage.getItem("task")
 
@@ -65,12 +100,27 @@ const getTasks = () => {
     }
 }
 
+const checkedGet = () => {
+    let myCheck = localStorage.getItem("checkBox")
+
+    if(myCheck !== null){
+        return JSON.parse(myCheck)
+    } else {
+        return []
+    }
+}
+
+
 
 
 const createIf = (tasks) => {
     if(tasks.length !== 0){
         tasks.forEach((oneTask, index) => {
             const newContent = newHTMLStructure(oneTask, index)
+
+            
+            
+                
     
             document.querySelector(".listToDo").appendChild(newContent)
         })
