@@ -24,7 +24,7 @@ const checked = (id, check) => {
     }
 }
 
-const checkCheckbox = () => {
+const allCheck = () => {
     
 }
 
@@ -39,6 +39,7 @@ const newHTMLStructure = (oneTask, id) => {
 
     newCheckBox.type = "checkbox"
     newCheckBox.classList.add("checkBox")
+    newCheckBox.name = "check"
     newDiv.appendChild(newCheckBox) 
 
     newCheckBox.addEventListener("change", () => {
@@ -51,6 +52,7 @@ const newHTMLStructure = (oneTask, id) => {
             newCheckBox.checked = true
         }
     }
+
     
   
     newSpan.textContent = oneTask.task

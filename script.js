@@ -41,3 +41,18 @@ deleteButton.addEventListener("click", () => {
     deleteAllTasks()
 })
 
+
+
+const checkboxes = document.querySelectorAll(".checkBox")
+checkboxes.forEach((oneCheck) => {
+    oneCheck.addEventListener("click", (e) => {
+        if(e.shiftKey && oneCheck.checked){
+            for( let i =0; i < checkboxes.length; i++)
+                checkboxes[i].checked = true
+        }
+        if(e.shiftKey && !oneCheck.checked){
+            for( let i =0; i < checkboxes.length; i++)
+                checkboxes[i].checked = false
+        }
+    })
+})
