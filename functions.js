@@ -38,7 +38,6 @@ const newHTMLStructure = (oneTask, id) => {
 
     newCheckBox.type = "checkbox"
     newCheckBox.classList.add("checkBox")
-    newCheckBox.name = "check"
     newDiv.appendChild(newCheckBox) 
 
     newCheckBox.addEventListener("change", () => {
@@ -63,6 +62,7 @@ const newHTMLStructure = (oneTask, id) => {
     newDiv.appendChild(newButton)
 
     newDiv.classList.add("oneTask")
+    newDiv.id = oneTask.id
     if(id % 2 !==0){
         newDiv.style.backgroundColor = "grey"
     }
@@ -106,6 +106,16 @@ const checkedGet = () => {
 
     if(myCheck !== null){
         return JSON.parse(myCheck)
+    } else {
+        return []
+    }
+}
+
+const getDoneTasks = () => {
+    let myDone = localStorage.getItem("doneTasks")
+
+    if(myDone !== null){
+        return JSON.parse(myDone)
     } else {
         return []
     }

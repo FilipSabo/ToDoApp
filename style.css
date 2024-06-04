@@ -61,6 +61,20 @@ body {
     text-align: center;
     visibility: hidden;
 }
+.tasksList{
+    margin-bottom: 5px;
+    background-color: red;
+    padding: 2px 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.tasksList:hover{
+    background-color: rgb(183, 62, 62);
+    padding: 5px 10px;
+}
 
 .deleteButton {
     margin-bottom: 5px;
@@ -75,7 +89,36 @@ body {
 .deleteButton:hover{
     background-color: rgb(183, 62, 62);
     padding: 5px 10px;
+}
 
+.doneTask{
+    margin-bottom: 5px;
+    background-color: red;
+    padding: 2px 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.doneTask:hover{
+    background-color: rgb(183, 62, 62);
+    padding: 5px 10px;
+}
+
+.doneTasksList{
+    margin-bottom: 5px;
+    background-color: red;
+    padding: 2px 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.doneTasksList:hover{
+    background-color: rgb(183, 62, 62);
+    padding: 5px 10px;
 }
 
 .listToDo{
@@ -84,8 +127,6 @@ body {
     align-items:center;
     height: 80%;
     width: 90%;
-
-    
 }
 
 .oneTask {
@@ -94,8 +135,6 @@ body {
     justify-content: space-between;
     width: 100%;
     padding: 3px 5%;
-    
-
 }
 
 .oneTask button {
