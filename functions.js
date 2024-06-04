@@ -120,7 +120,9 @@ const getDoneTasks = () => {
         return []
     }
 }
-
+ const saveDoneTasks = () => {
+    localStorage.setItem("doneTasks", JSON.stringify(doneTasks))
+ }
 
 
 
@@ -186,4 +188,24 @@ const notification = (textCont) => {
         notification.style.visibility= "hidden"
     },1000)
     
+}
+
+const createDoneTasksListHTML = (doneTask, id) => {
+    const newDiv = document.createElement("div")
+    const newSpan = document.createElement("span")
+    const newDate = document.createElement("span")
+
+    newSpan.textContent = doneTask.task
+    newDate.textContent = doneTask.date
+
+    if(id % 2 ===0){
+        newDiv.style.backgroundColor = "grey"
+    }
+
+    newDiv.classList.add("doneTaskDiv")
+
+    newDiv.appendChild(newSpan)
+    newDiv.appendChild(newDate)
+
+    return newDiv
 }

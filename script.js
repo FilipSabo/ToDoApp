@@ -42,6 +42,7 @@ deleteButton.addEventListener("click", () => {
 
 const doneTasks = getDoneTasks()
 
+
 const date = {
     day: new Date().getDate(),
     month: new Date().getMonth() + 1,
@@ -57,13 +58,15 @@ doneTask.addEventListener("click", (e) => {
         if(oneTaskDiv.children[0].checked){
             doneTasks.push({
                 task: oneTaskDiv.children[1].textContent,
-                date: `${date.day}.${date.month}. ${date.year}  ${date.hour}:${date.mins}`
+                date: `${date.day}.${date.month}. ${date.year} ${date.hour}:${date.mins}`
             })
-            localStorage.setItem("doneTasks", JSON.stringify(doneTasks))
+            saveDoneTasks()
             removeTask(tasks, oneTaskDiv.id)
             saveTasks()
             toPageAgain()
         }
+        checkBoxChecked = []
+        checkedSave()
     })
 })
 
@@ -82,3 +85,20 @@ checkboxes.forEach((oneCheck) => {
     })
 })
 
+const doneTasksList = document.querySelector(".doneTasksList")
+doneTasksList.addEventListener("click", (e) => {
+    const formAndDivs = document.querySelector(".formAndDivs")
+    formAndDivs.innerHTML = ""
+    doneTasks.forEach((oneDoneTask, index) => {
+        const newContent = createDoneTasksListHTML(oneDoneTask, index)
+
+        formAndDivs.appendChild(newContent)
+    })
+    const donebtn = document.querySelector(".doneTask")
+    donebtn.style.visibility = "hidden"
+})
+
+const tasksList = document.querySelector(".tasksList")
+tasksList.addEventListener("click", () => {
+    location.reload()
+})

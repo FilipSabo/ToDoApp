@@ -21,7 +21,7 @@ body {
 .formAndDivs{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     height:80vh;
     width: 70vw;
@@ -158,4 +158,12 @@ body {
     align-items: center;
     width: 50%;
     height: 50%;
+}
+
+.doneTaskDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    padding: 3px 5%;
 }
