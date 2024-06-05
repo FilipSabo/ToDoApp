@@ -60,6 +60,7 @@ body {
     box-shadow: 0px 0px 10px red;
     text-align: center;
     visibility: hidden;
+    margin-top: 10px;
 }
 .tasksList{
     margin-bottom: 5px;
@@ -166,4 +167,19 @@ body {
     justify-content: space-between;
     width: 90%;
     padding: 3px 5%;
+}
+
+.doneDeleteButton{
+    margin-bottom: 5px;
+    background-color: red;
+    padding: 2px 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.doneDeleteButton:hover{
+    background-color: rgb(183, 62, 62);
+    padding: 5px 10px;
 }

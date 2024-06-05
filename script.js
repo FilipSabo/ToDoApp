@@ -41,6 +41,10 @@ deleteButton.addEventListener("click", () => {
 })
 
 const doneTasks = getDoneTasks()
+if(doneTasks.length >= 10){
+    doneTasks.splice(0,doneTasks.length - 10)
+    saveDoneTasks()
+}
 
 
 const date = {
@@ -91,14 +95,17 @@ doneTasksList.addEventListener("click", (e) => {
     formAndDivs.innerHTML = ""
     doneTasks.forEach((oneDoneTask, index) => {
         const newContent = createDoneTasksListHTML(oneDoneTask, index)
-
+        
         formAndDivs.appendChild(newContent)
+        
     })
-    const donebtn = document.querySelector(".doneTask")
-    donebtn.style.visibility = "hidden"
+    document.querySelector(".doneTask").style.visibility = "hidden"
+    document.querySelector(".deleteButton").style.visibility = "hidden"
+    
 })
 
 const tasksList = document.querySelector(".tasksList")
 tasksList.addEventListener("click", () => {
     location.reload()
 })
+
